@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QueryJet - Enhanced Search App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        nav {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            padding: 12px 24px;
+            background: #6366f1;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .nav-btn:hover {
+            background: #5046e4;
+            transform: translateY(-2px);
+        }
+
+        .nav-btn.active {
+            background: #4f46e5;
+        }
+
+        .section {
+            display: none;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .section.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section h2 {
+            color: #6366f1;
+            margin-bottom: 30px;
+            font-size: 2em;
+            border-bottom: 3px solid #e5e7eb;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #4b5563;
+            margin: 25px 0 15px 0;
+            font-size: 1.3em;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            color: #6b7280;
+        }
+
+        .section ul {
+            margin: 15px 0 15px 20px;
+            color: #6b7280;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+        }
+
+        .contact-info {
+            background: #f3f4f6;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .contact-info strong {
+            color: #6366f1;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #9ca3af;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            header {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-btn {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>QueryJet</h1>
+            <p class="tagline">Enhanced Search Made Simple</p>
+        </header>
+
+        <nav>
+            <div class="nav-buttons">
+                <a href="#home" class="nav-btn" id="home-btn">Home</a>
+                <a href="#privacy-policy" class="nav-btn" id="privacy-btn">Privacy Policy</a>
+                <a href="#support" class="nav-btn" id="support-btn">Support</a>
+            </div>
+        </nav>
+
+        <!-- Home Section -->
+        <div id="home" class="section active">
+            <h2>Welcome to QueryJet</h2>
+            <p>QueryJet is a powerful, privacy-focused search app that combines advanced search technology with intuitive design. Featuring voice input capabilities, intelligent history management, and a clean interface, QueryJet transforms how you search the web.</p>
+            
+            <h3>Key Features</h3>
+            <ul>
+                <li><strong>Advanced Search:</strong> Utilizes cutting-edge technology for enhanced search results</li>
+                <li><strong>Voice Input:</strong> Search hands-free with sophisticated speech recognition technology</li>
+                <li><strong>Smart History:</strong> Intelligent search history management with automatic cleanup and duplicate detection</li>
+                <li><strong>Quick Suggestions:</strong> Pre-built search chips covering popular topics like news, weather, and local events</li>
+                <li><strong>Privacy-First Design:</strong> All personal data stored securely on your device</li>
+                <li><strong>Clean Interface:</strong> Modern, minimal design optimized for iOS with seamless theme adaptation</li>
+                <li><strong>Seamless Sharing:</strong> Built-in sharing and browser integration for enhanced workflow</li>
+            </ul>
+
+            <p>Available on the App Store for $0.99 with no subscriptions or in-app purchases. QueryJet offers a premium search experience without ongoing costs or data harvesting.</p>
+        </div>
+
+        <!-- Privacy Policy Section -->
+        <div id="privacy-policy" class="section">
+            <h2>Privacy Policy</h2>
+            <p><em>Last Updated: September 17, 2025</em></p>
+
+            <h3>Introduction</h3>
+            <p>This Privacy Policy describes how QueryJet ("we", "our", or "us") handles your information when you use our mobile application (the "Service"). We are committed to protecting your privacy and being transparent about our data practices.</p>
+
+            <h3>Information We Collect and Store</h3>
+            
+            <h4>Search History</h4>
+            <p>QueryJet stores your search history locally on your device using iOS's secure UserDefaults system. This data never leaves your device and includes:</p>
+            <ul>
+                <li>Search text you have entered</li>
+                <li>Timestamps of when searches were performed</li>
+            </ul>
+            <p>Search history is automatically cleaned up after 14 days and can be manually cleared by you at any time through the app's search history feature.</p>
+
+            <h4>Voice Recordings</h4>
+            <p>When you use the voice search feature, audio is processed locally on your device using iOS's built-in Speech Recognition framework. Voice recordings are:</p>
+            <ul>
+                <li>Processed entirely on your device</li>
+                <li>Never stored permanently</li>
+                <li>Never transmitted to our servers</li>
+                <li>Automatically discarded after transcription</li>
+            </ul>
+
+            <h4>App Settings</h4>
+            <p>QueryJet stores your app preferences (such as auto-refresh timeout settings) locally on your device. This information never leaves your device.</p>
+
+            <h3>Information We Do NOT Collect</h3>
+            <p>QueryJet does not collect, store, or transmit any of the following:</p>
+            <ul>
+                <li>Personal information (name, email, phone number, address)</li>
+                <li>Device identifiers or advertising IDs</li>
+                <li>Location data</li>
+                <li>Usage analytics or crash reports</li>
+                <li>Photos, contacts, or other personal data</li>
+                <li>Account information (no accounts required)</li>
+            </ul>
+
+            <h3>Third-Party Search Services</h3>
+            <p>QueryJet integrates with external search service providers to deliver search results. When you perform a search, your query is transmitted directly to these third-party search services to provide you with results. QueryJet does not store, collect, or have access to these search queries on our servers.</p>
+            
+            <p>The handling of your search queries by external search providers is governed by their respective privacy policies. We encourage you to review the privacy policies of search service providers to understand how they handle search data.</p>
+
+            <h3>Data Security</h3>
+            <p>All data stored by QueryJet remains on your device and is protected by iOS's built-in security features. We have implemented appropriate technical measures to protect your information, including:</p>
+            <ul>
+                <li>Local-only data storage</li>
+                <li>No server-side data collection</li>
+                <li>Secure transmission protocols for web searches</li>
+                <li>Automatic data cleanup and management</li>
+            </ul>
+
+            <h3>Your Privacy Rights and Choices</h3>
+            <p>You have complete control over your data:</p>
+            <ul>
+                <li><strong>Search History:</strong> Clear individual items or all history through the app's search history feature</li>
+                <li><strong>Voice Features:</strong> Disable or manage voice recognition permissions through iOS Settings</li>
+                <li><strong>Data Deletion:</strong> Uninstalling the app permanently deletes all locally stored data</li>
+                <li><strong>Search Control:</strong> All search queries are initiated by your direct action</li>
+            </ul>
+
+            <h3>Children's Privacy</h3>
+            <p>QueryJet does not knowingly collect personal information from children under 13. The app does not require personal information to function and all data remains local to the device.</p>
+
+            <h3>Changes to This Privacy Policy</h3>
+            <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated "Last Updated" date. We encourage you to review this Privacy Policy periodically for any changes.</p>
+
+            <h3>Contact Us</h3>
+            <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+            <div class="contact-info">
+                <strong>Email:</strong> ben266696687@gmail.com
+            </div>
+        </div>
+
+        <!-- Support Section -->
+        <div id="support" class="section">
+            <h2>Support</h2>
+
+            <h3>Getting Started</h3>
+            <p>QueryJet is designed to be intuitive and easy to use. Simply type your search query in the text field or tap the voice button to search using speech. Your searches will be enhanced by advanced technology for better, more relevant results.</p>
+
+            <h3>How to Use QueryJet</h3>
+            
+            <h4>Text Search</h4>
+            <ul>
+                <li>Enter your search query in the main text field</li>
+                <li>Tap "Search" or press the search key on your keyboard</li>
+                <li>Use the suggestion chips for quick searches on popular topics</li>
+                <li>Clear text with the X button that appears when typing</li>
+            </ul>
+
+            <h4>Voice Search</h4>
+            <ul>
+                <li>Tap the "Voice" button to start recording</li>
+                <li>Speak your search query clearly</li>
+                <li>Tap "Submit Audio" when finished, or "Cancel" to abort</li>
+                <li>The app will process your speech and perform the search automatically</li>
+            </ul>
+
+            <h4>Search History</h4>
+            <ul>
+                <li>Access your recent searches through the menu button (three dots)</li>
+                <li>Tap any previous search to perform it again</li>
+                <li>Delete individual searches with the red X button</li>
+                <li>Clear all history with the "Clear All" button</li>
+                <li>History automatically cleans up after 14 days</li>
+            </ul>
+
+            <h4>Settings</h4>
+            <ul>
+                <li>Customize auto-refresh timeout behavior</li>
+                <li>Control when the app returns to the search screen</li>
+                <li>Set to immediate (0), never (-1), or custom minutes</li>
+            </ul>
+
+            <h3>Frequently Asked Questions</h3>
+            
+            <h4>Why isn't voice search working?</h4>
+            <p>Voice search requires microphone and speech recognition permissions. Check your iOS Settings > Privacy & Security > Microphone and Speech Recognition to ensure QueryJet has the necessary permissions.</p>
+
+            <h4>How do I clear my search history?</h4>
+            <p>Tap the menu button (three dots) in the top right, select "Search History," then either delete individual items with the red X or tap "Clear All" to remove everything.</p>
+
+            <h4>Why do search results look different sometimes?</h4>
+            <p>QueryJet automatically adapts to your device's light or dark theme. When switching themes, the app may refresh search results to match your current appearance settings for optimal viewing.</p>
+
+            <h4>Can I change the search suggestions?</h4>
+            <p>The search suggestion chips are randomized each time you open the app to provide variety. They cover popular categories like news, weather, restaurants, and entertainment to help you discover new search ideas.</p>
+
+            <h4>Is my data private?</h4>
+            <p>Yes! All your search history and app settings stay on your device and are automatically cleaned up after 14 days. Voice recordings are processed locally and never stored. Only your search queries are sent to third-party search services to get results—we never see or store them.</p>
+
+            <h4>How do I share or open results in my browser?</h4>
+            <p>When viewing search results, tap the menu button (three dots) in the top right to share the page or open it in your default browser.</p>
+
+            <h3>Troubleshooting</h3>
+
+            <h4>App Not Loading Results</h4>
+            <ul>
+                <li>Check your internet connection</li>
+                <li>Try force-closing and reopening the app</li>
+                <li>Ensure you have the latest version installed</li>
+            </ul>
+
+            <h4>Voice Search Issues</h4>
+            <ul>
+                <li>Verify microphone permissions in iOS Settings</li>
+                <li>Try speaking more clearly and closer to the device</li>
+                <li>Ensure you're in a quiet environment</li>
+                <li>Check that Speech Recognition is enabled in iOS Settings</li>
+            </ul>
+
+            <h4>Search History Problems</h4>
+            <ul>
+                <li>History automatically cleans up after 14 days</li>
+                <li>Try manually clearing and rebuilding your history</li>
+                <li>Force-close the app if history isn't updating properly</li>
+            </ul>
+
+            <h3>System Requirements</h3>
+            <ul>
+                <li>iOS 18.0 or later</li>
+                <li>Compatible with iPhone</li>
+                <li>Internet connection required for search functionality</li>
+                <li>Microphone access required for voice search (optional)</li>
+            </ul>
+
+            <h3>Contact Support</h3>
+            <p>If you need additional help or have questions not covered here, please contact us:</p>
+            
+            <div class="contact-info">
+                <strong>Email:</strong> ben266696687@gmail.com<br>
+                <strong>Response Time:</strong> We typically respond within 24-48 hours<br>
+                <strong>App Version:</strong> Please include your iOS version and app version when contacting support
+            </div>
+
+            <h3>Feature Requests</h3>
+            <p>We're always looking to improve QueryJet! If you have ideas for new features or improvements, please send them to our support email. We read every message and consider all feedback for future updates.</p>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 QueryJet. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Navigation functionality
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remove active class from all nav buttons
+            const navBtns = document.querySelectorAll('.nav-btn');
+            navBtns.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show target section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
+            // Add active class to corresponding nav button
+            const targetBtn = document.getElementById(sectionId + '-btn');
+            if (targetBtn) {
+                targetBtn.classList.add('active');
+            }
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Handle navigation clicks
+        document.addEventListener('DOMContentLoaded', function() {
+            const navBtns = document.querySelectorAll('.nav-btn');
+            
+            navBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    showSection(targetId);
+                    
+                    // Update URL hash
+                    window.location.hash = targetId;
+                });
+            });
+
+            // Handle direct hash navigation
+            function handleHashChange() {
+                const hash = window.location.hash.substring(1);
+                if (hash) {
+                    showSection(hash);
+                } else {
+                    showSection('home');
+                }
+            }
+
+            // Listen for hash changes
+            window.addEventListener('hashchange', handleHashChange);
+            
+            // Handle initial page load
+            handleHashChange();
+        });
+    </script>
+</body>
+</html>
